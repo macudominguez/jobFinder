@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Raleway:ital,wght@0,300;0,900;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;600&family=Outfit:wght@300;400;600&family=Raleway:ital,wght@0,300;0,900;1,400&display=swap");
 * {
   margin: 0;
   padding: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -11,11 +11,11 @@
 }
 
 button {
-  background-color: #33596E;
-  color: #ACC0CB;
+  background-color: #e8eef1;
+  color: #306785;
   border-radius: 5px;
-  height: 40px;
-  width: 50px;
+  margin: 8px;
+  padding: 8px;
 }
 
 .container-cards {
@@ -25,11 +25,24 @@ button {
 }
 
 .card {
-  display: flex;
-  justify-content: center;
   width: 25%;
   height: 25%;
-  border: #ACC0CB 5px solid;
+  background-color: #306785;
+  color: #e8eef1;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.card-input {
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  padding: 8px;
+}
+
+.input-card {
+  border-radius: 15px;
 }
 
 .container-buscador {
@@ -40,19 +53,19 @@ button {
 
 .buscador {
   border-radius: 50px;
-  border: #33596E 15px solid;
+  border: #306785 15px solid;
   width: 90%;
 }
 
 .input-buscador {
+  margin: 8px;
+  padding: 8px;
   border: transparent 1px solid;
   border-radius: 40px;
-  margin: 5px;
   height: 25px;
-  padding: 10px;
-  font-size: 20px;
   width: 90%;
-  outline-color: #33596E;
+  outline-color: #306785;
+  font-size: 20px;
 }
 
 .fa-search {

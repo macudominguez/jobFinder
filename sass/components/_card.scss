@@ -3,8 +3,18 @@
     margin: 20px;
 }
 .card{
-    @include center-element ;
     width: 25% ;
     height: 25%;
-    border: $color-primary 5px solid;
+    background-color: $color-secondary;
+    color: $color-primary;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 10px;
+}
+.card-input{
+    @include center-element;
+    @include marginPadding;
+}
+.input-card{
+    border-radius: 15px;
 }

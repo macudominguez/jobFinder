@@ -1,7 +1,6 @@
 button{
-    background-color:$color-secondary;
-    color:$color-primary;
+    background-color:$color-primary;
+    color:$color-secondary;
     border-radius: 5px;
-    height: 40px;
-    width: 50px;
+    @include marginPadding
 }

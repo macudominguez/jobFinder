@@ -1,6 +1,11 @@
 button{
-    background-color:$color-primary;
+    background-color:$color-button;
     color:$color-secondary;
     border-radius: 5px;
     @include marginPadding
+}
+.iconos{
+    @include marginPadding;
+    color: $color-primary;
+    font-size: 20px;
 }

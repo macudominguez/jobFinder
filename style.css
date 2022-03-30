@@ -11,11 +11,18 @@
 }
 
 button {
-  background-color: #e8eef1;
+  background-color: #aec9f3;
   color: #306785;
   border-radius: 5px;
   margin: 8px;
   padding: 8px;
+}
+
+.iconos {
+  margin: 8px;
+  padding: 8px;
+  color: #e8eef1;
+  font-size: 20px;
 }
 
 .container-cards {
@@ -43,6 +50,11 @@ button {
 
 .input-card {
   border-radius: 15px;
+  margin-left: 5px;
+}
+
+.container-propuesta {
+  margin: 10px;
 }
 
 .container-buscador {

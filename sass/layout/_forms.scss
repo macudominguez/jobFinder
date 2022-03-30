@@ -1,0 +1,25 @@
+.container-buscador{
+    @include center-element;
+    width: 100%;
+}
+.buscador{
+    border-radius: 50px;
+    border: $color-secondary 15px solid;
+    width: 90%;
+}
+.input-buscador{
+    border:transparent 1px solid;
+    border-radius: 40px;
+    margin:5px;
+    height: 25px;
+    padding: 10px;
+    font-size: 20px ;
+    width: 90%;
+    outline-color: $color-secondary;
+}
+.fa-search{
+    margin-left:10px;
+    font-size: 20px ;
+}
+
+

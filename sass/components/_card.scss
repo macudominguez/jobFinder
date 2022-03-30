@@ -1,0 +1,10 @@
+.container-cards{
+    @include center-element ;
+    margin: 20px;
+}
+.card{
+    @include center-element ;
+    width: 25% ;
+    height: 25%;
+    border: $color-primary 5px solid;
+}

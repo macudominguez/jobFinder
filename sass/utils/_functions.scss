@@ -3,7 +3,24 @@
     justify-content: center;
 }
 
-@mixin marginPadding {
+@mixin marginPadding{
     margin: 8px;
     padding: 8px;
 }
+
+@mixin boton($redondeado) {
+    border: none;
+    width: 100px;
+    height: 50px;
+    background-color:$color-button;
+    color:$color-secondary;
+    border-radius: 5px;
+    @if $redondeado {
+        border-radius: 50px;
+    }
+    margin: 10px;
+}
+
+ 
+
+

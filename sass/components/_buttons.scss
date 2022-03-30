@@ -1,11 +1,12 @@
 button{
-    background-color:$color-button;
-    color:$color-secondary;
-    border-radius: 5px;
-    @include marginPadding
+    @include marginPadding;
+    @include boton ($redondeado: false);
 }
 .iconos{
     @include marginPadding;
     color: $color-primary;
     font-size: 20px;
+}
+.boton-redondeado{
+    @include boton($redondeado: true);
 }

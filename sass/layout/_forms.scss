@@ -1,6 +1,6 @@
 .container-buscador{
-    @include center-element;
     width: 100%;
+    @extend %flex-centrar;
 }
 .buscador{
     border-radius: 50px;

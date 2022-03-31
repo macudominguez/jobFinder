@@ -1,8 +1,3 @@
-@mixin center-element {  
-    display: flex;
-    justify-content: center;
-}
-
 @mixin marginPadding{
     margin: 8px;
     padding: 8px;
@@ -21,6 +16,9 @@
     margin: 10px;
 }
 
- 
-
-
+%flex-centrar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -10,6 +10,13 @@
   width: 100%;
 }
 
+.container-buscador, .input-card, .contenedor-input, .card, .container-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 button {
   margin: 8px;
   padding: 8px;
@@ -41,40 +48,49 @@ button {
 }
 
 .container-cards {
-  display: flex;
-  justify-content: center;
   margin: 20px;
 }
 
 .card {
-  width: 25%;
-  height: 25%;
+  width: 50%;
   background-color: #306785;
   color: #e8eef1;
   border-radius: 15px;
   text-align: center;
   padding-top: 10px;
+  margin-top: 10px;
 }
 
-.card-input {
-  display: flex;
-  justify-content: center;
+.contenedor-input {
   margin: 8px;
   padding: 8px;
 }
 
 .input-card {
   border-radius: 15px;
-  margin-left: 5px;
+  width: 25.5em;
+  height: 1.5em;
+  margin-top: 5px;
 }
 
 .container-propuesta {
   margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contenedor-cards {
+  background-color: #306785;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .container-buscador {
-  display: flex;
-  justify-content: center;
   width: 100%;
 }
 

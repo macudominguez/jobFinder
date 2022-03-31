@@ -1,24 +1,42 @@
 .container-cards{
-    @include center-element ;
     margin: 20px;
+    @extend %flex-centrar;
 }
 .card{
-    width: 25% ;
-    height: 25%;
+    @extend %flex-centrar;
+    width: 50%;
     background-color: $color-secondary;
     color: $color-primary;
     border-radius: 15px;
     text-align: center;
     padding-top: 10px;
+    margin-top: 10px
 }
-.card-input{
-    @include center-element;
+.contenedor-input{
     @include marginPadding;
+    @extend %flex-centrar;
 }
 .input-card{
+    @extend %flex-centrar;
     border-radius: 15px;
-    margin-left: 5px;
+    width:25.5em;
+    height:1.5em;
+    margin-top:5px;
 }
 .container-propuesta{
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedor-cards{
+    background-color: $color-secondary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+
 }

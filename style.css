@@ -6,11 +6,11 @@
 }
 
 .container {
-  margin-top: 5rem;
   width: 100%;
+  background-color: #f3f4f7;
 }
 
-.container-buscador, .input-card, .contenedor-input, .card, .container-cards {
+.container-buscador, .input, .contenedor-input, .card, .container-cards {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,8 +21,6 @@ button {
   margin: 8px;
   padding: 8px;
   border: none;
-  width: 100px;
-  height: 50px;
   background-color: #aec9f3;
   color: #306785;
   border-radius: 5px;
@@ -38,8 +36,6 @@ button {
 
 .boton-redondeado {
   border: none;
-  width: 100px;
-  height: 50px;
   background-color: #aec9f3;
   color: #306785;
   border-radius: 5px;
@@ -52,7 +48,9 @@ button {
 }
 
 .card {
-  width: 50%;
+  box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
   background-color: #306785;
   color: #e8eef1;
   border-radius: 15px;
@@ -66,21 +64,27 @@ button {
   padding: 8px;
 }
 
-.input-card {
+.input {
   border-radius: 15px;
   width: 25.5em;
-  height: 1.5em;
-  margin-top: 5px;
+  height: 2em;
+  margin-top: 10px;
+  padding: 5px;
+  outline-color: #306785;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .container-propuesta {
-  margin: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .contenedor-cards {
+  box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
   background-color: #306785;
   display: flex;
   flex-direction: column;
@@ -88,13 +92,23 @@ button {
   margin: 15px;
   padding: 15px;
   border-radius: 10px;
+  width: 25%;
 }
 
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .contenedor-cards {
+    width: 80%;
+  }
+}
 .container-buscador {
   width: 100%;
+  padding-top: 30px;
 }
 
 .buscador {
+  box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: -8px 6px 25px -5px rgba(0, 0, 0, 0.52);
   border-radius: 50px;
   border: #306785 15px solid;
   width: 90%;
@@ -106,14 +120,21 @@ button {
   border: transparent 1px solid;
   border-radius: 40px;
   height: 25px;
-  width: 90%;
+  width: 95%;
   outline-color: #306785;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .fa-search {
   margin-left: 10px;
   font-size: 20px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  .input-buscador {
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

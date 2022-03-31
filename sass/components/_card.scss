@@ -3,34 +3,37 @@
     @extend %flex-centrar;
 }
 .card{
+    @include shadow;
     @extend %flex-centrar;
-    width: 50%;
     background-color: $color-secondary;
     color: $color-primary;
     border-radius: 15px;
     text-align: center;
     padding-top: 10px;
-    margin-top: 10px
+    margin-top: 10px;
 }
 .contenedor-input{
     @include marginPadding;
     @extend %flex-centrar;
 }
-.input-card{
+.input{
     @extend %flex-centrar;
     border-radius: 15px;
     width:25.5em;
-    height:1.5em;
-    margin-top:5px;
+    height:2em;
+    margin-top:10px;
+    padding: 5px;
+    outline-color: $color-secondary;
+    font-size: 15px;
+    font-weight: bold;
 }
 .container-propuesta{
-    margin: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .contenedor-cards{
+    @include shadow;
     background-color: $color-secondary;
     display: flex;
     flex-direction: column;
@@ -38,5 +41,14 @@
     margin: 15px;
     padding: 15px;
     border-radius: 10px;
-
+    width: 25%;
 }
+
+@media screen and (min-width: 300px) and (max-width: 600px){
+    .contenedor-cards{
+        width: 80%;
+    }
+}
+
+
+

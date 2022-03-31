@@ -1,8 +1,10 @@
 .container-buscador{
     width: 100%;
     @extend %flex-centrar;
+    padding-top: 30px;
 }
 .buscador{
+    @include shadow;
     border-radius: 50px;
     border: $color-secondary 15px solid;
     width: 90%;
@@ -12,13 +14,19 @@
     border:transparent 1px solid;
     border-radius: 40px;
     height: 25px;
-    width: 90%;
+    width: 95%;
     outline-color: $color-secondary;
     font-size: 20px ;
+    font-weight: bold;
 }
 .fa-search{
     margin-left:10px;
     font-size: 20px ;
 }
 
+@media screen and (min-width: 300px) and (max-width: 800px){
+    .input-buscador{
+        width: 80%;
+    }
+}
 

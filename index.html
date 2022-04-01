@@ -23,42 +23,44 @@
                 <div>
                     <div class="contenedor-input">
                         <h4>Puesto:</h4>
-                        <input type="text" class="input" name="" id="">
+                        <input type="text" class="input" name="" id="puestoGuardar" placeholder="Puesto">
                     </div>
                     <div class="contenedor-input">
                         <h4>Empresa:</h4>
-                        <input type="text" class="input" name="" id="">
+                        <input type="text" class="input" name="" id="empresaGuardar" placeholder="Empresa">
                     </div>
                     <div class="contenedor-input">
                         <h4>Tags:</h4>
-                        <input type="text" class="input" name="" id="">
+                        <input type="text" class="input" name="" id="tagsGuardar" placeholder="#ingresa #tu #etiqueta">
                     </div>
-                    <button>
+                    <input type="hidden" id="eliminar-id">
+                    <button id="guardar-propuesta" >
                         <h3> Guardar</h3>
                     </button>
                 </div>
             </div>
         </div>
-            <!-- <div class="card">    
+            <div class="card modal" id="modal-edit">    
                 <h2>Editar propuesta</h2>
                 <div>
                     <div class="contenedor-input">
                         <h4>Puesto:</h4>
-                        <input type="text" class="input" name="" id="">
+                        <input type="text" class="input" name="" id="edit-puesto">
                     </div>
                     <div class="contenedor-input">
                         <h4>Empresa:</h4>
-                        <input type="text" class="input" name="" id="">
+                        <input type="text" class="input" name="" id="edit-empresa">
                     </div>
                     <div class="contenedor-input">
                         <h4>Tags:</h4>
-                        <input type="text" class="input" name="" id="">
+                        <input type="text" class="input" name="" id="edit-tags">
                     </div>
-                    <button>
+                    <input type="hidden" id="editar-id">
+                    <button id="editar-propuesta" >
                         <h3> Guardar</h3>
                     </button>
-                </div> -->
-            
+                </div>
+            </div>
             <div class="container-propuesta" id="card-propuesta">
                 <div class="contenedor-cards">
                     <h2>
@@ -70,7 +72,7 @@
                     <button>
                         20/04
                     </button>
-                    <div class="">
+                    <div>
                         <button class="boton-redondeado">
                             <h3>#Redes</h3>
                         </button>
@@ -82,17 +84,17 @@
                         </button>
                     </div>
                     <div class="iconos">
-                        <i class="fas fa-trash"></i>
-                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash" onclick="openModalDelete()"></i>
+                        <i class="fas fa-edit" onclick="openModalEdit()"></i>
                     </div>
                 </div>
             </div>
-            <!-- <div class=" card container-propuesta">
+            <div class="card modal" id="eliminar-modal">
                 <h3>¿Desea eliminar esta oferta de trabajo?</h3>
-                <button>
+                <button id="eliminar-propuesta">
                     <h3> Eliminar</h3>
                 </button>
-            </div> -->   
+            </div>
     </div>
     <script src="script.js"></script>
     </body>

@@ -44,11 +44,31 @@
     width: 25%;
 }
 
-@media screen and (min-width: 300px) and (max-width: 600px){
+
+.modal{
+    visibility: hidden;
+}
+
+.is-visible {
+    visibility: visible;
+}
+
+
+
+
+
+@media screen and (min-width: 300px) and (max-width: 800px){
     .contenedor-cards{
         width: 80%;
     }
+    .contenedor-input{
+        width:22em;
+    }
+    .input{
+        width:20em;
+    }
 }
+
 
 
 

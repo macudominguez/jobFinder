@@ -1,7 +1,77 @@
-//URL = 'https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost'
 const cardPropuesta = document.getElementById('card-propuesta') 
+const guardarPropuesta = document.getElementById('guardar-propuesta')
+const editarPropuesta = document.getElementById('editar-propuesta')
+const eliminarPropuesta = document.getElementById('eliminar-propuesta')
+const puestoGuardar = document.getElementById('puestoGuardar')
+const empresaGuardar = document.getElementById('empresaGuardar')
+const tagsGuardar = document.getElementById('tagsGuardar')
+const eliminarId = document.getElementById('eliminar-id')
+const eliminarModal = document.getElementById('eliminar-modal')
+const modalEdit = document.getElementById('modal-edit')
+const editPuesto = document.getElementById('edit-puesto')
+const editEmpresa = document.getElementById('edit-empresa')
+const editTags = document.getElementById('edit-tags')
+const editarId = document.getElementById('editar-id')
 
 
+//Eliminar
+const showModalDelete = () =>{
+    eliminarModal.classList.add("is-visible");
+}
+const openModalDelete = (id)=> {
+    showModalDelete();
+    eliminarId.value = id;
+};
+const closeModalDelete = () =>{
+    eliminarModal.classList.remove("is-visible");
+}
+eliminarPropuesta.addEventListener("click", () =>{ 
+    closeModalDelete()
+    const id = eliminarId.value;
+    fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`, {method : 'DELETE'})
+    .then(res => updateDom());
+});
+
+
+//Editar
+const showModalEdit = () =>{
+    modalEdit.classList.add("is-visible");
+}
+const closeModalEdit = () =>{
+    modalEdit.classList.remove("is-visible");
+}
+const openModalEdit = async (id)=> {
+    showModalEdit();
+    const res = await fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`)
+    const data = await res.json()
+    console.log(data)
+    editPuesto.value = data.puesto
+    editEmpresa.value = data.empresa
+    editTags.value = data.tag
+    editarId.value = id 
+};
+
+
+editarPropuesta.addEventListener("click", () =>{
+    closeModalEdit()
+    const id = editarId.value
+    const trabajo = {}
+    trabajo.puesto = editPuesto.value;
+    trabajo.empresa = editEmpresa.value;
+    trabajo.tag=[...tagsGuardar.value.split(" ")];
+
+    fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`, {
+        method: 'PUT',
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify(trabajo)
+    }).then((res) => updateDom());
+})
+
+
+
+//Agregar
 const jobInfo = async () =>{
     const res = await fetch('https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost')
     const data = await res.json()
@@ -29,8 +99,8 @@ const jobInfo = async () =>{
             </button>
         </div>
         <div class="iconos">
-            <i class="fas fa-trash"></i>
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash" onclick="openModalDelete(${datita.id})"></i>
+            <i class="fas fa-edit" onclick="openModalEdit(${datita.id})" ></i>
         </div>
     </div>`
     }).join("")
@@ -42,23 +112,58 @@ jobInfo()
 
 
 
-// git pasos habituales:
-// Ir a la carpeta que queremos agregar al repositorio. (click derecho abrir"git bash here")
-// 1. git init
-// 2. git add .
-// 3. git status (para chequear si hay archivos en rojo o verde)
-// 4. git commit -m  (para enviar el mensaje)
-// 5. git pull (sirve para traer los cambios)
-// 6.git push (sirve para mandar los cambios)
-// SI HACE FALTA VOLVER EN ALGÚN MOMENTO PARA VOLVER ATRÁS:
-// 5. git restore --staged nombredearchivo.extension
+guardarPropuesta.addEventListener("click", () =>{ 
+    //closeModal()
+    const trabajo = {}
+    trabajo.puesto = puestoGuardar.value;
+    trabajo.empresa = empresaGuardar.value;
+    trabajo.tag=[...tagsGuardar.value.split(" ")]
+
+    fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost`, {
+        method: "POST",
+        headers:{
+        "Content-Type": "application/json"
+    },
+        body:JSON.stringify(trabajo)
+    }).then(res => updateDom());
+})
 
 
-// 4. git commit -m  (para enviar el mensaje)
-// 5. git pull (sirve para traer los cambios)
-// 6.git push (sirve para mandar los cambios)
+const updateDom = () =>{
+    jobInfo()
+}
+
+
+
+
+
+// // Función que brinda la fecha a la tabla de ventas
+// const parseDateToString = (date) => {
+//     //01/01/2022
+//     // 01 -> 01
+//     // 01-01-2022
+//     // 15/01/2022
+//     //  015 -> 15
+//     const day = `0${date.getDate()}`.slice(-2);
+//     const month = `0${date.getMonth() + 1}`.slice(-2);
+//     return `${date.getFullYear()}-${month}-${day}`;
+//   };
+  
+//   const parseDateToStringDom = (date) => {
+//     // 25 025 -> 25
+//     // 3 03 -> 03
+//     const day = `0${date.getDate()}`.slice(-2);
+//     const month = `0${date.getMonth() + 1}`.slice(-2);
+//     return `${day}/${month}/${date.getFullYear()}`;
+//   };
+  
+
 
 
 //Falta
 //fecha de cards
-//delete, put, patch, gachi pachi y los dos pelotudos.
+//delete, put, gachi pachi y los dos pelotudos.
+//modal
+//funcionalidad a los botones(guardar, editar y eliminar)
+//responsive
+

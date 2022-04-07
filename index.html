@@ -8,59 +8,78 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-    <div class="container">
-        <div class="container-buscador">
-            <div class="buscador">
-                <div>
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="input-buscador" name="buscador" placeholder="Redes">
+        <div class="container">
+
+        <!-- Buscador -->
+            <div class="container-buscador">
+                <div class="buscador">
+                    <div>
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="input-buscador" name="buscador" placeholder="Redes">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container-cards">
-            <div class="card">    
-                <h2>Agregar propuesta</h2>
-                <div>
-                    <div class="contenedor-input">
-                        <h4>Puesto:</h4>
-                        <input type="text" class="input" name="" id="puestoGuardar" placeholder="Puesto">
+
+            <!-- Modals y propuesta -->
+            <div class="container-modals">
+                <!-- Propuestas -->
+                <div class="card">    
+                    <h2>Agregar propuesta</h2>
+                    <div>
+                        <div class="contenedor-input">
+                            <h4>Puesto:</h4>
+                            <input type="text" class="input" name="" id="puestoGuardar" placeholder="Puesto">
+                        </div>
+                        <div class="contenedor-input">
+                            <h4>Empresa:</h4>
+                            <input type="text" class="input" name="" id="empresaGuardar" placeholder="Empresa">
+                        </div>
+                        <div class="contenedor-input">
+                            <h4>Tags:</h4>
+                            <input type="text" class="input" name="" id="tagsGuardar" placeholder="#ingresa #tu #etiqueta">
+                        </div>
+                        <input type="hidden" id="eliminar-id">
+                        <button id="guardar-propuesta" >
+                            <h3> Guardar</h3>
+                        </button>
                     </div>
-                    <div class="contenedor-input">
-                        <h4>Empresa:</h4>
-                        <input type="text" class="input" name="" id="empresaGuardar" placeholder="Empresa">
+                </div>
+
+                <!-- Editar -->
+                <div class="card modal" id="modal-edit"> 
+                    <a href="#close" title="Close" class="close" id="modal-edit-close">X</a>    
+                    <h2>Editar propuesta</h2>
+                    <div>
+                        <div class="contenedor-input">
+                            <h4>Puesto:</h4>
+                            <input type="text" class="input" name="" id="edit-puesto">
+                        </div>
+                        <div class="contenedor-input">
+                            <h4>Empresa:</h4>
+                            <input type="text" class="input" name="" id="edit-empresa">
+                        </div>
+                        <div class="contenedor-input">
+                            <h4>Tags:</h4>
+                            <input type="text" class="input" name="" id="edit-tags">
+                        </div>
+                        <input type="hidden" id="editar-id">
+                        <button id="editar-propuesta" >
+                            <h3> Guardar</h3>
+                        </button>
                     </div>
-                    <div class="contenedor-input">
-                        <h4>Tags:</h4>
-                        <input type="text" class="input" name="" id="tagsGuardar" placeholder="#ingresa #tu #etiqueta">
-                    </div>
-                    <input type="hidden" id="eliminar-id">
-                    <button id="guardar-propuesta" >
-                        <h3> Guardar</h3>
+                </div>
+ 
+                <!-- Eliminar -->
+                <div class="card modal modal-eliminar" id="eliminar-modal">
+                    <a href="#close" title="Close" class="close" id="modal-eliminar-close">X</a>   
+                    <h3>¿Desea eliminar esta oferta de trabajo?</h3>
+                    <button id="eliminar-propuesta">
+                        <h3> Eliminar</h3>
                     </button>
-                </div>
-            </div>
-        </div>
-            <div class="card modal" id="modal-edit">    
-                <h2>Editar propuesta</h2>
-                <div>
-                    <div class="contenedor-input">
-                        <h4>Puesto:</h4>
-                        <input type="text" class="input" name="" id="edit-puesto">
-                    </div>
-                    <div class="contenedor-input">
-                        <h4>Empresa:</h4>
-                        <input type="text" class="input" name="" id="edit-empresa">
-                    </div>
-                    <div class="contenedor-input">
-                        <h4>Tags:</h4>
-                        <input type="text" class="input" name="" id="edit-tags">
-                    </div>
-                    <input type="hidden" id="editar-id">
-                    <button id="editar-propuesta" >
-                        <h3> Guardar</h3>
-                    </button>
-                </div>
-            </div>
+                </div> 
+            </div> 
+
+            <!-- Cards de propuestas -->
             <div class="container-propuesta" id="card-propuesta">
                 <div class="contenedor-cards">
                     <h2>
@@ -69,9 +88,9 @@
                     <p>
                         Social Global
                     </p>
-                    <button>
-                        20/04
-                    </button>
+                    <div class="fecha">
+                        <button>20/04</button>
+                    </div>
                     <div>
                         <button class="boton-redondeado">
                             <h3>#Redes</h3>
@@ -89,13 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card modal" id="eliminar-modal">
-                <h3>¿Desea eliminar esta oferta de trabajo?</h3>
-                <button id="eliminar-propuesta">
-                    <h3> Eliminar</h3>
-                </button>
-            </div>
-    </div>
+        </div>
     <script src="script.js"></script>
     </body>
 </html>

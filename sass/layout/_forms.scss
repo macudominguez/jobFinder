@@ -23,6 +23,22 @@
     margin-left:10px;
     font-size: 20px ;
 }
+.contenedor-input{
+    @include marginPadding;
+    @extend %flex-centrar;
+}
+.input{
+    @extend %flex-centrar;
+    border-radius: 15px;
+    width:25.5em;
+    height:2em;
+    margin-top:10px;
+    padding: 5px;
+    outline-color: $color-secondary;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 
 @media screen and (min-width: 300px) and (max-width: 900px){
     .input-buscador{

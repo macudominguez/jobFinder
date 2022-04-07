@@ -12,9 +12,11 @@ const editPuesto = document.getElementById('edit-puesto')
 const editEmpresa = document.getElementById('edit-empresa')
 const editTags = document.getElementById('edit-tags')
 const editarId = document.getElementById('editar-id')
-
+const cerrarModalEdit = document.getElementById('modal-edit-close')
+const cerrarModalEliminar = document.getElementById('modal-eliminar-close')
 
 //Eliminar
+
 const showModalDelete = () =>{
     eliminarModal.classList.add("is-visible");
 }
@@ -31,6 +33,9 @@ eliminarPropuesta.addEventListener("click", () =>{
     fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`, {method : 'DELETE'})
     .then(res => updateDom());
 });
+cerrarModalEliminar.addEventListener("click", () =>{
+    closeModalDelete()
+})
 
 
 //Editar
@@ -44,7 +49,6 @@ const openModalEdit = async (id)=> {
     showModalEdit();
     const res = await fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`)
     const data = await res.json()
-    console.log(data)
     editPuesto.value = data.puesto
     editEmpresa.value = data.empresa
     editTags.value = data.tag
@@ -52,13 +56,14 @@ const openModalEdit = async (id)=> {
 };
 
 
+//No funcionan los tag
 editarPropuesta.addEventListener("click", () =>{
     closeModalEdit()
     const id = editarId.value
     const trabajo = {}
     trabajo.puesto = editPuesto.value;
     trabajo.empresa = editEmpresa.value;
-    trabajo.tag=[...tagsGuardar.value.split(" ")];
+    trabajo.tag=[...tagsGuardar.value.split(" ").join(" ")];
 
     fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`, {
         method: 'PUT',
@@ -69,14 +74,46 @@ editarPropuesta.addEventListener("click", () =>{
     }).then((res) => updateDom());
 })
 
+cerrarModalEdit.addEventListener('click', ()=> {
+    closeModalEdit()
+})
 
 
-//Agregar
+
+
+//Mapeo de cards
+
+//No funciona la fecha
+
+
+// const parseDateToString = (date) => {
+//     //01/01/2022
+//     // 01 -> 01
+//     // 01-01-2022
+//     // 15/01/2022
+//     //  015 -> 15
+//     const day = `0${date.getDate()}`.slice(-2);
+//     const month = `0${date.getMonth() + 1}`.slice(-2);
+//     return `${date.getFullYear()}-${month}-${day}`;
+//   };
+
+
+// const parseDateToStringDom = (date) => {
+//     // 25 025 -> 25
+//     // 3 03 -> 03
+//     const day = `0${date.getDate()}`.slice(-2);
+//     const month = `0${date.getMonth() + 1}`.slice(-2);
+//     return `${day}/${month}/${date.getFullYear()}`;
+//   };
+
+
+
 const jobInfo = async () =>{
     const res = await fetch('https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost')
     const data = await res.json()
 
     cardPropuesta.innerHTML = data.map((datita)=>{
+        // const date = parseDateToStringDom(datita.fecha);
         return `<div class="contenedor-cards">
         <h2>
             ${datita.puesto}
@@ -108,12 +145,9 @@ const jobInfo = async () =>{
 jobInfo()
 
 
-
-
-
+//Agregar
 
 guardarPropuesta.addEventListener("click", () =>{ 
-    //closeModal()
     const trabajo = {}
     trabajo.puesto = puestoGuardar.value;
     trabajo.empresa = empresaGuardar.value;
@@ -132,38 +166,3 @@ guardarPropuesta.addEventListener("click", () =>{
 const updateDom = () =>{
     jobInfo()
 }
-
-
-
-
-
-// // Función que brinda la fecha a la tabla de ventas
-// const parseDateToString = (date) => {
-//     //01/01/2022
-//     // 01 -> 01
-//     // 01-01-2022
-//     // 15/01/2022
-//     //  015 -> 15
-//     const day = `0${date.getDate()}`.slice(-2);
-//     const month = `0${date.getMonth() + 1}`.slice(-2);
-//     return `${date.getFullYear()}-${month}-${day}`;
-//   };
-  
-//   const parseDateToStringDom = (date) => {
-//     // 25 025 -> 25
-//     // 3 03 -> 03
-//     const day = `0${date.getDate()}`.slice(-2);
-//     const month = `0${date.getMonth() + 1}`.slice(-2);
-//     return `${day}/${month}/${date.getFullYear()}`;
-//   };
-  
-
-
-
-//Falta
-//fecha de cards
-//delete, put, gachi pachi y los dos pelotudos.
-//modal
-//funcionalidad a los botones(guardar, editar y eliminar)
-//responsive
-

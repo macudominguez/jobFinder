@@ -118,14 +118,12 @@ const jobInfo = async () =>{
         <h2>
             ${datita.puesto}
         </h2>
-        <div class="fechaEmpresa">
-            <p class="empresa">
-                ${datita.empresa}
-            </p>
-            <button class="fecha">
+        <p>
+            ${datita.empresa}
+        </p>
+        <button>
                 ${datita.fecha}
-            </button>
-        </div>
+        </button>
         <div class="container-propuesta">
             <button class="boton-redondeado">
                 <h3>${datita.tag[0]}</h3>

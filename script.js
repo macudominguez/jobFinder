@@ -14,6 +14,7 @@ const editTags = document.getElementById('edit-tags')
 const editarId = document.getElementById('editar-id')
 const cerrarModalEdit = document.getElementById('modal-edit-close')
 const cerrarModalEliminar = document.getElementById('modal-eliminar-close')
+const buscadorFiltro = document.getElementById('buscador-filtro')
 
 //Eliminar
 
@@ -63,7 +64,7 @@ editarPropuesta.addEventListener("click", () =>{
     const trabajo = {}
     trabajo.puesto = editPuesto.value;
     trabajo.empresa = editEmpresa.value;
-    trabajo.tag=[...tagsGuardar.value.split(" ").join(" ")];
+    trabajo.tag=[...editTags.value.split(" ")];
 
     fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost/${id}`, {
         method: 'PUT',
@@ -79,41 +80,13 @@ cerrarModalEdit.addEventListener('click', ()=> {
 })
 
 
-
-
 //Mapeo de cards
-
-//No funciona la fecha
-
-
-// const parseDateToString = (date) => {
-//     //01/01/2022
-//     // 01 -> 01
-//     // 01-01-2022
-//     // 15/01/2022
-//     //  015 -> 15
-//     const day = `0${date.getDate()}`.slice(-2);
-//     const month = `0${date.getMonth() + 1}`.slice(-2);
-//     return `${date.getFullYear()}-${month}-${day}`;
-//   };
-
-
-// const parseDateToStringDom = (date) => {
-//     // 25 025 -> 25
-//     // 3 03 -> 03
-//     const day = `0${date.getDate()}`.slice(-2);
-//     const month = `0${date.getMonth() + 1}`.slice(-2);
-//     return `${day}/${month}/${date.getFullYear()}`;
-//   };
-
-
 
 const jobInfo = async () =>{
     const res = await fetch('https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost')
     const data = await res.json()
 
     cardPropuesta.innerHTML = data.map((datita)=>{
-        // const date = parseDateToStringDom(datita.fecha);
         return `<div class="contenedor-cards">
         <h2>
             ${datita.puesto}
@@ -122,7 +95,7 @@ const jobInfo = async () =>{
             ${datita.empresa}
         </p>
         <button>
-                ${datita.fecha}
+                ${datita.fecha.slice(0,10)}
         </button>
         <div class="container-propuesta">
             <button class="boton-redondeado">
@@ -144,6 +117,45 @@ const jobInfo = async () =>{
 }
 jobInfo()
 
+//filter
+
+const busquedaFilter = async (parametro) => {
+    const res = await fetch(`https://6243a0ce39aae3e3b744ef34.mockapi.io/jobpost?filter=${parametro}`)
+    const data = await res.json()
+    cardPropuesta.innerHTML = data.map((datita)=>{
+        return `<div class="contenedor-cards">
+        <h2>
+            ${datita.puesto}
+        </h2>
+        <p>
+            ${datita.empresa}
+        </p>
+        <button>
+                ${datita.fecha.slice(0,10)}
+        </button>
+        <div class="container-propuesta">
+            <button class="boton-redondeado">
+                <h3>${datita.tag[0]}</h3>
+            </button>
+            <button class="boton-redondeado">
+                <h3>${datita.tag[1]}</h3>
+            </button>
+            <button class="boton-redondeado">
+                <h3>${datita.tag[2]}</h3>
+            </button>
+        </div>
+        <div class="iconos">
+            <i class="fas fa-trash" onclick="openModalDelete(${datita.id})"></i>
+            <i class="fas fa-edit" onclick="openModalEdit(${datita.id})" ></i>
+        </div>
+    </div>`
+    }).join("")
+
+   }
+
+buscadorFiltro.addEventListener('keypress', (e) =>{
+    busquedaFilter(e.target.value)
+})
 
 //Agregar
 
@@ -165,4 +177,5 @@ guardarPropuesta.addEventListener("click", () =>{
 
 const updateDom = () =>{
     jobInfo()
+
 }
